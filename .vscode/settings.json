@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "shuksysEnv/bin/python",
+    "python.linting.pylintEnabled": false,
+    "git.ignoreLimitWarning": true
+}
