@@ -37,12 +37,12 @@ class Pedido(models.Model):
     numeroSeguimiento = models.CharField(max_length =255, null=True)
     idPedidoEstado = models.ForeignKey(PedidoEstado,on_delete=models.CASCADE)
     fechaDespacho = models.DateTimeField(auto_now=False, null=True, default=None)
-    idDetalleVenta = models.IntegerField()
+    idDetalleVenta = models.IntegerField(null=True)
     comentario = models.CharField(max_length =255, null=True)
     #archivoDetalleVenta =
     
-    def __str__(self):
-       return self.email
+    def __int__(self):
+       return self.pk
 
 class PedidoDetalle(models.Model):
     idPedido = models.ForeignKey(Pedido,on_delete=models.CASCADE)
@@ -50,7 +50,7 @@ class PedidoDetalle(models.Model):
     cantidad = models.IntegerField()
 
     def __int__(self):
-       return self.idProducto
+       return self.pk
 
 class Banco(models.Model):
     descripcion = models.CharField(max_length =255, null=True)
@@ -66,14 +66,3 @@ class CuentaBancaria(models.Model):
     idBanco = models.ForeignKey(Banco,on_delete=models.CASCADE)
 
 
-'''
-class Pedido(models.Model):
-    email = models.EmailField(max_length=255,unique=True)
-    nombre = models.CharField(max_length=255,null=True)
-    apellido = models.CharField(max_length=255)
-    idContagram = models.IntegerField(null=True)
-    activo = models.BooleanField(default=True)
-    
-    def __str__(self):
-       return self.email
-'''
