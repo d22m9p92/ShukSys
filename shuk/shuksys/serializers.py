@@ -2,7 +2,7 @@ from django.db.models import fields
 from django.db.models.base import Model
 from rest_framework import serializers
 from rest_framework.exceptions import MethodNotAllowed
-from .models import Producto, ProductoCategoria , Pedido, PedidoDetalle
+from .models import Lote, Producto, ProductoCategoria , Pedido, PedidoDetalle
 
 '''############LISTADO DE PRODUCTOS############'''
 class ProductoSerializer(serializers.ModelSerializer):
@@ -20,6 +20,11 @@ class ProductoCategoriaSerializer(serializers.ModelSerializer):
 
 
 '''############PEDIDOS############'''
+class LoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lote
+        fields = '__all__'
+
 class PedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pedido

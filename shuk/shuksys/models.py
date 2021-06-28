@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models.base import Model
+from django.db.models.deletion import CASCADE
 from django.db.models.fields import CharField, IntegerField
 from django.db.models.fields.related import ForeignKey
 
@@ -31,16 +33,25 @@ class PedidoEstado(models.Model):
     def __str__(self):
        return self.descripcion
 
+class Lote(models.Model):
+    fechaDesde = models.DateField(auto_now=False, null=True)
+    fechaHasta = models.DateField(auto_now=False, null=True)
+    cerrado = models.BooleanField(default=False)
+
+    def __int__(self):
+       return self.pk
+
 class Pedido(models.Model):
     idUsuario = models.ForeignKey(User,on_delete=models.CASCADE)
     fechaPedido = models.DateTimeField(auto_now=True)
-    numeroSeguimiento = models.CharField(max_length =255, null=True)
+    numeroSeguimiento = models.CharField(max_length =255, null=True,blank=True)
     idPedidoEstado = models.ForeignKey(PedidoEstado,on_delete=models.CASCADE)
     fechaDespacho = models.DateTimeField(auto_now=False, null=True, default=None)
-    idDetalleVenta = models.IntegerField(null=True)
-    comentario = models.CharField(max_length =255, null=True)
+    idDetalleVenta = models.IntegerField(null=True,blank=True)
+    comentario = models.CharField(max_length =255, null=True,blank=True)
+    idLote = models.ForeignKey(Lote, on_delete=models.CASCADE )
     #archivoDetalleVenta =
-    
+
     def __int__(self):
        return self.pk
 
@@ -64,5 +75,3 @@ class CuentaBancaria(models.Model):
     numeroSucursal = models.IntegerField()
     numerocuenta = models.BigIntegerField()
     idBanco = models.ForeignKey(Banco,on_delete=models.CASCADE)
-
-
