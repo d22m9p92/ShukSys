@@ -1,5 +1,5 @@
 from django.http.response import ResponseHeaders
-from rest_framework import response
+from rest_framework import response, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
@@ -17,16 +17,17 @@ def login(request):
 
     try: 
         user = User.objects.get(username = username)
+        
     except User.DoesNotExist:
-        return Response('Usuario o password incorrecto')
+        return Response({"status":"error",'message':'Usuario o contraseña ingresados son invalidos'}, status=status.HTTP_200_OK)
 
     pwd_valido = check_password(password, user.password)
 
     if not pwd_valido:
-        return Response('Usuario o password incorrecto')
+        return Response({"status":"error",'message':'Usuario o password ingresados son invalidos'}, status=status.HTTP_200_OK)
     
     token, create = Token.objects.get_or_create(user=user)
-    return Response(token.key)
+    return Response({"status":"sucess","message":token.key, "staff":user.is_staff},status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
