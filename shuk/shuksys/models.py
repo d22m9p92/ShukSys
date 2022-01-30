@@ -23,6 +23,7 @@ class ProductoCategoria(models.Model):
 class Producto(models.Model):
     descripcion = models.CharField(max_length =255, null=True)
     idProductoCategoria = models.ForeignKey(ProductoCategoria,related_name = 'productos' ,on_delete=models.CASCADE)
+    imagen = models.ImageField(null=True, default=None)
 
     def __str__(self):
        return self.descripcion

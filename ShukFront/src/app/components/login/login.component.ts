@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
   ingresar(form:LoginI){
     this.api.login(form)
       .subscribe(data=>{
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
         }
       });
 
-    
+  
     }
     error(mensaje:string){
       this._snackBar.open(mensaje,'',{

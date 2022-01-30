@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-*d8+t_7gzt-6zcs(2xu_*w=zki=42r!a#0%r(yr6#8f3%(a!g#
 DEBUG = True
 
 #Host autorizados a correr
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'http://shukadmin.us-west-2.elasticbeanstalk.com',
+    'http://shuk.ar'
+    ]
 
 
 # Application definition
@@ -43,6 +48,7 @@ INSTALLED_APPS = [
     'corsheaders',
     #'rest_framework.authoken',
     'shuksys',
+    'storages',
 
 ]
 
@@ -149,3 +155,12 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+AWS_ACCESS_KEY_ID = 'AKIAX7CJJU64SRNC52G6'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'shuk'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

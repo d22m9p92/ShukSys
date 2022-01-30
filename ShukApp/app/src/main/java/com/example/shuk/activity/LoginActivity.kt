@@ -54,6 +54,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun executeLogin(username: String, password: String){
         val call = service.login("login",username,password)
+
+        //https://www.digitaldot.es/como-implementar-log-in-en-kotlin-con-retrofit/
     }
 
 }

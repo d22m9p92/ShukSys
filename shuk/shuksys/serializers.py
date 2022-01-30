@@ -8,7 +8,7 @@ from .models import Lote, Producto, ProductoCategoria , Pedido, PedidoDetalle
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
-        fields = ['id','descripcion']
+        fields = ['id','descripcion','imagen']
 
 class ProductoCategoriaSerializer(serializers.ModelSerializer):
     productos = ProductoSerializer(many=True) 
