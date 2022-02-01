@@ -1,6 +1,6 @@
 <div class=body>
     <div class="login">
-        <mat-spinner *ngIf ="loading" diameter="100" class="spinner" ></mat-spinner>
+        <mat-spinner *ngIf ="loading" diameter="50" class="spinner" ></mat-spinner>
 
         <form *ngIf ="!loading" [formGroup]="form" (ngSubmit)= "ingresar(form.value)">
             <img src="./assets/img/shuk.png" alt="" width="50%">
