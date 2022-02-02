@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatToolbarModule, 
+    MatIconModule
   ],
   exports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HttpClientModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatToolbarModule, 
+    MatToolbarModule,
+    MatIconModule
   ],
 })
 export class SharedModule { }
