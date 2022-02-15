@@ -1,15 +1,11 @@
 <mat-toolbar>
-    <span class="navbar">Nuevo Pedido</span>
-
-    <span class="example-spacer"></span>
-    <mat-tab-group mat-align-tabs="center" color="warn">
-      <mat-tab label="La Francia Panes"></mat-tab>
-      <mat-tab label="2"></mat-tab>
-      <mat-tab label="3"></mat-tab>
-      <mat-tab label="4"></mat-tab>
-    </mat-tab-group>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon routerLink="/logout" color="warn">logout</mat-icon>
-    </button>
-  </mat-toolbar>
+  <img src="./assets/img/shuk.png" alt="" width="10%">
+  <span class="example-spacer"></span>
+      <button mat-stroked-button color="warn" routerLink="/dashboard">Mis Pedidos</button>
+      <button mat-stroked-button color="warn" routerLink="/dashboard/nuevopedido">Nuevo Pedido</button>
+  <span class="example-spacer"></span>
+  
+  <button routerLink="/logout" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" color="warn">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
