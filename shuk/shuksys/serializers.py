@@ -37,7 +37,7 @@ class PedidoSerializer(serializers.ModelSerializer):
     class Meta:
     
         model = Pedido
-        fields = ['idUsuario','fechaPedido', 'numeroSeguimiento','idPedidoEstado','fechaDespacho','idDetalleVenta','comentario','idLote']
+        fields = ['id','idUsuario','fechaPedido', 'numeroSeguimiento','idPedidoEstado','fechaDespacho','idDetalleVenta','comentario','idLote']
 
 class PedidoDetalleSerializer(serializers.ModelSerializer):
     class Meta:
