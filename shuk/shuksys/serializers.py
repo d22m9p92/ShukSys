@@ -1,10 +1,16 @@
+from pyexpat import model
 from django.db.models import fields
 from django.db.models.base import Model
 from rest_framework import serializers
 from rest_framework.exceptions import MethodNotAllowed
-from .models import Lote, Producto, ProductoCategoria , Pedido, PedidoDetalle
+from .models import Lote, PedidoEstado, Producto, ProductoCategoria , Pedido, PedidoDetalle
 
 '''############LISTADO DE PRODUCTOS############'''
+class PedidoEstadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PedidoEstado
+        fields =  ['id','descripcion']
+
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
@@ -26,9 +32,12 @@ class LoteSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PedidoSerializer(serializers.ModelSerializer):
+    idPedidoEstado = PedidoEstadoSerializer(many = False)
+
     class Meta:
+    
         model = Pedido
-        fields = '__all__'
+        fields = ['idUsuario','fechaPedido', 'numeroSeguimiento','idPedidoEstado','fechaDespacho','idDetalleVenta','comentario','idLote']
 
 class PedidoDetalleSerializer(serializers.ModelSerializer):
     class Meta:

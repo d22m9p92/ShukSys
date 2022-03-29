@@ -1,3 +1,4 @@
+from dataclasses import fields
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.base import Model
@@ -44,10 +45,11 @@ class Lote(models.Model):
 
 class Pedido(models.Model):
     idUsuario = models.ForeignKey(User,on_delete=models.CASCADE)
-    fechaPedido = models.DateTimeField(auto_now=True)
+    fechaPedido = models.DateField(auto_now=True)
+    horaPedido = models.TimeField(auto_now=True)
     numeroSeguimiento = models.CharField(max_length =255, null=True,blank=True)
-    idPedidoEstado = models.ForeignKey(PedidoEstado,on_delete=models.CASCADE)
-    fechaDespacho = models.DateTimeField(auto_now=False, null=True, default=None)
+    idPedidoEstado = models.ForeignKey(PedidoEstado,on_delete=models.CASCADE, related_name = 'estado')
+    fechaDespacho = models.DateField(auto_now=False, null=True, default=None, blank=True)
     idDetalleVenta = models.IntegerField(null=True,blank=True)
     comentario = models.CharField(max_length =255, null=True,blank=True)
     idLote = models.ForeignKey(Lote, on_delete=models.CASCADE )

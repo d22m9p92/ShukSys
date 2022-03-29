@@ -35,11 +35,6 @@ class PedidoDetalleViewSet(viewsets.ModelViewSet):
     serializer_class = PedidoDetalleSerializer
     queryset = PedidoDetalle.objects.all()
 
-    def post(request):
-
-        if request.method == "POST":
-            seri
-
 
 class LoteViewSet(viewsets.ModelViewSet):
     serializer_class = LoteSerializer

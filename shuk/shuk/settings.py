@@ -67,7 +67,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://localhost:4200",
-    "http://127.0.0.1:9000",
+    "http://127.0.0.1:9000"
 ]
 
 REST_FRAMEWORK = {
@@ -159,7 +159,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-AWS_ACCESS_KEY_ID = 'AKIAX7CJJU64QJOA3NMX'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIAX7CJJ7676U64QJOA3NMX'
+AWS_SECRET_ACCESS_KEY = 'PEZkzmA767676JvBVg/l4l/flQqOUNSH75sqJQnCeteLSz'
 AWS_STORAGE_BUCKET_NAME = 'shuk'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
