@@ -1,0 +1,6 @@
+[
+    {
+        "nombre": "Mis Pedidos",
+        "redirect": "/dashboard"
+    }
+]

@@ -3,10 +3,14 @@
 
     <br>
     <mat-toolbar  color="">
-            <span>Mis Pedidos</span>
+      <span>Mis Pedidos</span>
+      <span class="example-spacer"></span>
+      <button mat-button routerLink="/dashboard/nuevopedido"> 
+        <mat-icon>add</mat-icon>
+      </button>
     </mat-toolbar>
 
- 
+  
     <table mat-table [dataSource]="pedidos" class="mat-elevation-z8">
 
       <ng-container matColumnDef="idDetalleVenta">
