@@ -1,8 +1,7 @@
 <mat-toolbar>
   <img src="./assets/img/shuk.png" alt="" height="50px">
   <span class="example-spacer"></span>
-      <button mat-button routerLink="/dashboard">Mis Pedidos</button>
-      <button mat-button routerLink="/dashboard/nuevopedido">Nuevo Pedido</button>
+      <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect">{{ item.nombre }}</button>
   <span class="example-spacer"></span>
   
   <button routerLink="/logout" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" color="warn">
