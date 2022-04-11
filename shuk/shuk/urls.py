@@ -8,7 +8,7 @@ router = DefaultRouter()
 router.register('api/producto',ProductoViewSet)
 router.register('api/productocategoria',ProductoCategoriaViewSet)
 router.register('api/pedido',PedidoViewSet, basename='pedido')
-router.register('api/pedidodetalle',PedidoDetalleViewSet)
+router.register('api/pedidodetalle',PedidoDetalleViewSet,basename='pedidodetalle')
 router.register('api/lote',LoteViewSet)
 
 urlpatterns = router.urls

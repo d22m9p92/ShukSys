@@ -59,7 +59,7 @@ class Pedido(models.Model):
        return self.pk
 
 class PedidoDetalle(models.Model):
-    idPedido = models.ForeignKey(Pedido,on_delete=models.CASCADE)
+    idPedido = models.ForeignKey(Pedido,related_name = 'detalle',on_delete=models.CASCADE)
     idProducto = models.ForeignKey(Producto,on_delete=models.CASCADE)
     cantidad = models.IntegerField()
 

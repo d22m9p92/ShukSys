@@ -31,15 +31,27 @@ class LoteSerializer(serializers.ModelSerializer):
         model = Lote
         fields = '__all__'
 
-class PedidoSerializer(serializers.ModelSerializer):
-    idPedidoEstado = PedidoEstadoSerializer(many = False)
-
-    class Meta:
-    
-        model = Pedido
-        fields = ['id','idUsuario','fechaPedido', 'numeroSeguimiento','idPedidoEstado','fechaDespacho','idDetalleVenta','comentario','idLote']
-
 class PedidoDetalleSerializer(serializers.ModelSerializer):
     class Meta:
         model = PedidoDetalle
         fields = '__all__'
+
+
+class PedidoSerializer(serializers.ModelSerializer):
+   # idPedidoEstado = PedidoEstadoSerializer(many = False)
+    detalle = PedidoDetalleSerializer(many =True)
+
+    class Meta:
+        MethodNotAllowed
+        model = Pedido
+        fields = ['id','idUsuario','fechaPedido', 'numeroSeguimiento','idPedidoEstado','fechaDespacho','detalle','comentario','idLote']
+
+
+class PedidoListaSerializer(serializers.ModelSerializer):
+    idPedidoEstado = PedidoEstadoSerializer(many = False)
+
+    class Meta:
+        MethodNotAllowed
+        model = Pedido
+        fields = ['id','fechaPedido','idDetalleVenta', 'numeroSeguimiento','idPedidoEstado']
+
