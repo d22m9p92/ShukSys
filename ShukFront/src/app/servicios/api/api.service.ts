@@ -27,7 +27,6 @@ export class ApiService {
     /*################PEDIDOS############*/
   getPedidos():Observable<PedidosO[]>{
     const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem("token")});
-
     return this.http.get<PedidosO[]>('/api/pedido',  { headers: headers});
   }
 }

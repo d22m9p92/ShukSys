@@ -14,13 +14,13 @@ import { MatTableDataSource } from '@angular/material/table';
 export class MispedidosComponent implements OnInit {
 
   displayedColumns: string[] = ['fechaPedido','idPedidoEstado','idDetalleVenta','detalle'];
-  dataPedido: any; //Es de tipo Pedidos[]
+  dataPedido: any; //Es de tipo PedidosO[]
   
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private api:ApiService, private router:Router) { }
-  
+
   ngOnInit(): void {
     this.api.getPedidos().subscribe(data =>{ 
       this.dataPedido = new MatTableDataSource(data);

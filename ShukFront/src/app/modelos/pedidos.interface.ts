@@ -7,7 +7,8 @@ export interface PedidosO{
     comentario: String; 
     idUsuario: Number;
     idPedidoEstado: any;
-    idLote: Number
+    idLote: Number;
+    detalle: any
 };
 
 

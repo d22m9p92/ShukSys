@@ -27,7 +27,6 @@ class PedidoViewSet(viewsets.ModelViewSet):
     permissions_classes = [IsAuthenticated]
     
     def get_serializer_class(self):
-        
         if self.action == 'list':
             return PedidoListaSerializer
         return super().get_serializer_class()
@@ -35,8 +34,8 @@ class PedidoViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         if user.is_superuser:
-           return Pedido.objects.all()
-        return Pedido.objects.filter(idUsuario = user.id)
+           return Pedido.objects.all().order_by('-id')
+        return Pedido.objects.filter(idUsuario = user.id).order_by('-id')
 
     def create(self, request, *args, **kwargs):
         user = self.request.user
