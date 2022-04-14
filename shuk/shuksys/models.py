@@ -6,14 +6,6 @@ from django.db.models.deletion import CASCADE
 from django.db.models.fields import CharField, IntegerField
 from django.db.models.fields.related import ForeignKey
 
-'''
-class User(AbstractUser):
-    idContagram = models.IntegerField()
-
-    class Meta:
-        db_table = 'auth_user'
-'''
-
 class ProductoCategoria(models.Model):
     descripcion = CharField(max_length =255, null=True)
 
@@ -61,7 +53,7 @@ class Pedido(models.Model):
 class PedidoDetalle(models.Model):
     idPedido = models.ForeignKey(Pedido,related_name = 'detalle',on_delete=models.CASCADE)
     idProducto = models.ForeignKey(Producto,on_delete=models.CASCADE)
-    cantidad = models.IntegerField()
+    cantidad = models.PositiveIntegerField()
 
     def __int__(self):
        return self.pk

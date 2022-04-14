@@ -27,7 +27,7 @@ class PedidoViewSet(viewsets.ModelViewSet):
     permissions_classes = [IsAuthenticated]
     
     def get_serializer_class(self):
-        print('hola', self.action)
+        
         if self.action == 'list':
             return PedidoListaSerializer
         return super().get_serializer_class()
@@ -39,7 +39,29 @@ class PedidoViewSet(viewsets.ModelViewSet):
         return Pedido.objects.filter(idUsuario = user.id)
 
     def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)
+        user = self.request.user
+        serializer = self.serializer_class(data = request.data)
+        
+        if serializer.is_valid():
+            import copy
+
+            val_pedido = serializer.validated_data.copy()
+            val_detalle = val_pedido.pop('detalle')
+
+            #Guardar Pedido
+            nuevo_pedido = Pedido(**val_pedido)
+            nuevo_pedido.idUsuario = user
+            nuevo_pedido.save()
+    
+
+            #Guardar Detalle
+            for detalle_datos in val_detalle:
+                detalle_nuevo = PedidoDetalle.objects.create(
+                    idPedido = nuevo_pedido, **detalle_datos
+                )
+    
+            return Response({'status':'ok','id':nuevo_pedido.pk},status.HTTP_201_CREATED)
+        return Response({'error': serializer.errors},status=status.HTTP_400_BAD_REQUEST)   
 
 class PedidoDetalleViewSet(viewsets.ModelViewSet):
     serializer_class = PedidoDetalleSerializer

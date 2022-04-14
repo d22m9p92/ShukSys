@@ -34,7 +34,7 @@ class LoteSerializer(serializers.ModelSerializer):
 class PedidoDetalleSerializer(serializers.ModelSerializer):
     class Meta:
         model = PedidoDetalle
-        fields = '__all__'
+        fields = ['id','idProducto','cantidad']
 
 
 class PedidoSerializer(serializers.ModelSerializer):
@@ -44,7 +44,7 @@ class PedidoSerializer(serializers.ModelSerializer):
     class Meta:
         MethodNotAllowed
         model = Pedido
-        fields = ['id','idUsuario','fechaPedido', 'numeroSeguimiento','idPedidoEstado','fechaDespacho','detalle','comentario','idLote']
+        fields = ['id','fechaPedido', 'numeroSeguimiento','idPedidoEstado','fechaDespacho','detalle','comentario','idLote']
 
 
 class PedidoListaSerializer(serializers.ModelSerializer):
