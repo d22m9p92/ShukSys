@@ -6,14 +6,13 @@ from rest_framework.decorators import api_view, permission_classes, action
 from rest_framework.response import Response
 from rest_framework.request import Request
 from .models import Lote, Producto, ProductoCategoria, Pedido, PedidoDetalle
-from .serializers import LoteSerializer, PedidoListaSerializer, ProductoSerializer, ProductoCategoriaSerializer, PedidoSerializer, PedidoDetalleSerializer
+from .serializers import LoteSerializer, PedidoGetSerializer, PedidoListaSerializer, ProductoSerializer, ProductoCategoriaSerializer, PedidoSerializer, PedidoDetalleSerializer
 from django.contrib.auth.models import User
 
 
 class ProductoViewSet(viewsets.ModelViewSet):
     serializer_class = ProductoSerializer
     queryset =  Producto.objects.all()
-
 
 class ProductoCategoriaViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,Token):
     permissions_classes = [IsAuthenticated]
@@ -27,8 +26,11 @@ class PedidoViewSet(viewsets.ModelViewSet):
     permissions_classes = [IsAuthenticated]
     
     def get_serializer_class(self):
+        print(self.action)
         if self.action == 'list':
             return PedidoListaSerializer
+        if self.action == 'retrieve':
+            return PedidoGetSerializer
         return super().get_serializer_class()
 
     def get_queryset(self):
@@ -63,18 +65,19 @@ class PedidoViewSet(viewsets.ModelViewSet):
         return Response({'error': serializer.errors},status=status.HTTP_400_BAD_REQUEST)   
 
 class PedidoDetalleViewSet(viewsets.ModelViewSet):
-    serializer_class = PedidoDetalleSerializer
     permissions_classes = [IsAuthenticated]
+    serializer_class = PedidoDetalleSerializer
+    queryset = PedidoDetalle.objects.all()
 
-    def get_queryset(self,pk = None):
-        if pk is None:
-            return self.get_serializer().Meta.model.objects.all()
-        return super().get_queryset()
+#    def get_queryset(self,pk = None):
+#        if pk is None:
+#            return self.get_serializer().Meta.model.objects.all()
+#        return super().get_queryset()
 
-    def list(self,request):
-        print(request.data)
-        detalle_serializer = self.get_serializer(self.get_queryset(),many=True)
-        return Response(request.data, status=status.HTTP_200_OK)
+#    def list(self,request):
+#        print(request.data)
+#        detalle_serializer = self.get_serializer(self.get_queryset(),many=True)
+#        return Response(request.data, status=status.HTTP_200_OK)
 
 
 class LoteViewSet(viewsets.ModelViewSet):

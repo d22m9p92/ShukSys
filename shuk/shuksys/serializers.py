@@ -37,9 +37,26 @@ class PedidoDetalleSerializer(serializers.ModelSerializer):
         fields = ['id','idProducto','cantidad']
 
 
+class PedidoDetalleGetSerializer(serializers.ModelSerializer):
+    idProducto = ProductoSerializer(many=False)
+    
+    class Meta:
+        model = PedidoDetalle
+        fields = ['id','idProducto','cantidad']
+
+
 class PedidoSerializer(serializers.ModelSerializer):
-   # idPedidoEstado = PedidoEstadoSerializer(many = False)
     detalle = PedidoDetalleSerializer(many =True)
+
+    class Meta:
+        MethodNotAllowed
+        model = Pedido
+        fields = ['id','fechaPedido', 'numeroSeguimiento','idPedidoEstado','fechaDespacho','detalle','comentario','idLote']
+
+
+class PedidoGetSerializer(serializers.ModelSerializer):
+    idPedidoEstado = PedidoEstadoSerializer(many = False)
+    detalle = PedidoDetalleGetSerializer(many =True)  
 
     class Meta:
         MethodNotAllowed
@@ -54,4 +71,3 @@ class PedidoListaSerializer(serializers.ModelSerializer):
         MethodNotAllowed
         model = Pedido
         fields = ['id','fechaPedido','idDetalleVenta', 'numeroSeguimiento','idPedidoEstado']
-
