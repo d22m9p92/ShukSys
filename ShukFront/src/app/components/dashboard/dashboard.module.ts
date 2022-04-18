@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MispedidosComponent } from './mispedidos/mispedidos.component';
+import { PedidodetalleComponent } from './mispedidos/pedidodetalle/pedidodetalle.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MispedidosComponent } from './mispedidos/mispedidos.component';
     DashboardComponent,
     NavbarComponent,
     PedidosComponent,
-    MispedidosComponent
+    MispedidosComponent,
+    PedidodetalleComponent
   ],
   imports: [
     CommonModule,
