@@ -17,6 +17,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatStepperModule
+    MatStepperModule,
+    MatDividerModule,
+    MatListModule
   ],
   exports: [
     CommonModule,
@@ -53,7 +57,9 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatStepperModule
+    MatStepperModule,
+    MatDividerModule,
+    MatListModule
   ],
 })
 export class SharedModule { }
