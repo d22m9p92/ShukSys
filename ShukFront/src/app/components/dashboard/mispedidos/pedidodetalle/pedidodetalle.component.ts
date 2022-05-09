@@ -20,7 +20,7 @@ export class PedidodetalleComponent implements OnInit {
   constructor(private api:ApiService, private router:Router) { }
 
   ngOnInit(): void {
-    this.api.getPedidos().subscribe(data =>{ 
+    this.api.getDetalle().subscribe(data =>{ 
       this.dataDetalle = new MatTableDataSource(data);
       this.dataDetalle.paginator = this.paginator;
       }

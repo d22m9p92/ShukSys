@@ -27,8 +27,7 @@ export class LoginComponent implements OnInit {
 
   
   ingresar(form:LoginI){
-    this.api.login(form)
-      .subscribe(data=>{
+    this.api.login(form).subscribe(data=>{
         let dataResponse:LoginO= data;
         if (dataResponse.status == "sucess"){
           localStorage.setItem("token", dataResponse.message);

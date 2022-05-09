@@ -26,10 +26,7 @@ export class MispedidosComponent implements OnInit {
       this.dataPedido = new MatTableDataSource(data);
       this.dataPedido.paginator = this.paginator;
       }
-      )
-    
+      ) 
   }
-
-
 }
 

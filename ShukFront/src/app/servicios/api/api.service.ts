@@ -9,7 +9,6 @@ import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
   providedIn: 'root'
 })
 export class ApiService {
-
   
   constructor(private http:HttpClient) { }
 
@@ -26,7 +25,15 @@ export class ApiService {
 
     /*################PEDIDOS############*/
   getPedidos():Observable<PedidosO[]>{
-    const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem("token")});
-    return this.http.get<PedidosO[]>('/api/pedido',  { headers: headers});
+    const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem('token')});
+    return this.http.get<PedidosO[]>('/api/pedido/',  { headers: headers});
   }
+
+
+  getDetalle():Observable<PedidosO[]>{
+    const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem("token")});
+    return this.http.get<PedidosO[]>('/api/pedidodetalle',  { headers: headers});
+  }
+
+
 }
