@@ -1,21 +1,31 @@
+.demo-table {
+  width: 100%;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+th{
+ width: 38%; 
+}
+
 table {
-    width: 100%;
-    margin-top: 21px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-.botonsig{
-  margin-left: 37%;
+  width: 100%;
 }
 
-.botonant{
-  margin-left: 25%;
-}
-
-.mat-stepper-horizontal {
-  margin-top: 8px;
+.example-spacer {
+  flex: 1 1 auto;
 }
 
 .mat-form-field {

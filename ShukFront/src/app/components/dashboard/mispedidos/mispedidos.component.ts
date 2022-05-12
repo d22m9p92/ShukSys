@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/servicios/api/api.service';
-import {PedidosO} from '../../../modelos/pedidos.interface'
+import { PedidosO } from '../../../modelos/pedidos.interface'
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -26,10 +26,7 @@ export class MispedidosComponent implements OnInit {
       this.dataPedido = new MatTableDataSource(data);
       this.dataPedido.paginator = this.paginator;
       }
-      )
-    
+      ) 
   }
-
-
 }
 
