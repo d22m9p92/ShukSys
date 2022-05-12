@@ -40,11 +40,11 @@ class Pedido(models.Model):
     fechaPedido = models.DateField(auto_now=True)
     horaPedido = models.TimeField(auto_now=True)
     numeroSeguimiento = models.CharField(max_length =255, null=True,blank=True)
-    idPedidoEstado = models.ForeignKey(PedidoEstado,on_delete=models.CASCADE, related_name = 'estado')
+    idPedidoEstado = models.ForeignKey(PedidoEstado,on_delete=models.CASCADE, related_name = 'estado', default=1)
     fechaDespacho = models.DateField(auto_now=False, null=True, default=None, blank=True)
     idDetalleVenta = models.IntegerField(null=True,blank=True)
     comentario = models.CharField(max_length =255, null=True,blank=True)
-    idLote = models.ForeignKey(Lote, on_delete=models.CASCADE )
+    idLote = models.ForeignKey(Lote, on_delete=models.CASCADE, null=True,blank=True)
     #archivoDetalleVenta =
 
     def __int__(self):
