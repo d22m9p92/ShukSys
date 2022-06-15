@@ -10,17 +10,7 @@
         <mat-list>    
             <div mat-subheader style="width: 40%;">
                 Nro. Pedido
-                <mat-list-item *ngFor="let item of dataDetalle">{{item.id}}</mat-list-item>
-            </div>
-            <mat-divider></mat-divider>
-            <div mat-subheader style="width: 40%;">
-                Fecha Despacho
-                <mat-list-item *ngFor="let item of dataDetalle">{{item.fechaDespacho}}</mat-list-item>
-            </div>
-            <mat-divider></mat-divider>
-            <div mat-subheader style="width: 40%;">
-                Nro. Seguimiento
-                <mat-list-item *ngFor="let item of dataDetalle">{{item.numeroSeguimiento}}</mat-list-item>
+                <mat-list-item *matCellDef="let item">{{item.idDetalleVenta}}</mat-list-item>
             </div>      
         </mat-list>
 
@@ -28,12 +18,12 @@
 
             <ng-container matColumnDef="idProducto">
               <th mat-header-cell *matHeaderCellDef style="height: 40px;width: 70%;" > Producto </th>
-              <td mat-cell *matCellDef="let element" > {{element.position}} </td>
+              <td mat-cell *ngFor="let element of dataDetalle" > {{element.producto}} </td>
             </ng-container>
 
             <ng-container matColumnDef="cantidad">
               <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              <td mat-cell *ngFor="let element of dataDetalle"> {{element.cantidad}} </td>
             </ng-container>
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

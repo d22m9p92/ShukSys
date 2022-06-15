@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'; 
 import {PedidosO} from '../../modelos/pedidos.interface';
 import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
+import { Detalle } from 'src/app/modelos/detalle.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 export class ApiService {
   
   constructor(private http:HttpClient) { }
+
 
     /*################LOGIN############*/
   login(form:LoginI):Observable<LoginO >{
@@ -30,9 +32,9 @@ export class ApiService {
   }
 
 
-  getDetalle():Observable<PedidosO[]>{
+  getDetalle():Observable<Detalle[]>{
     const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem("token")});
-    return this.http.get<PedidosO[]>('/api/pedidodetalle',  { headers: headers});
+    return this.http.get<Detalle[]>('/api/pedidodetalle',  { headers: headers});
   }
 
 

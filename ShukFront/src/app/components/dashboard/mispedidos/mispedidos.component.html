@@ -24,7 +24,13 @@
 
       <ng-container matColumnDef="idDetalleVenta">
         <th mat-header-cell *matHeaderCellDef> Det. Venta</th>
-          <td mat-cell *matCellDef="let element"> {{element.idDetalleVenta}} </td>
+          <td mat-cell *matCellDef="let element"> 
+            <a class="material-icons-outlined" >
+              <button mat-icon-button routerLink="/dashboard/detalle">
+                <mat-icon>menu</mat-icon>
+              </button>
+            </a>
+          </td>
         </ng-container>
 
       <ng-container matColumnDef="detalle">
