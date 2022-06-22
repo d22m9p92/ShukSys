@@ -15,7 +15,8 @@ export class PedidodetalleComponent implements OnInit {
   
   displayedColumns: string[] = ['idProducto', 'cantidad'];
   dataDetalle: Detalle[]=[];
-  
+  @Input() idDetalle: any;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private api:ApiService, private router:Router) { }

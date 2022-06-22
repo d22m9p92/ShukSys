@@ -18,12 +18,12 @@
 
             <ng-container matColumnDef="idProducto">
               <th mat-header-cell *matHeaderCellDef style="height: 40px;width: 70%;" > Producto </th>
-              <td mat-cell *ngFor="let element of dataDetalle" > {{element.producto}} </td>
+              <td mat-cell *ngFor="let element of dataDetalle"> {{element[idDetalle].producto}} </td>
             </ng-container>
 
             <ng-container matColumnDef="cantidad">
               <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-              <td mat-cell *ngFor="let element of dataDetalle"> {{element.cantidad}} </td>
+              <td mat-cell *ngFor="let element of dataDetalle"> {{element[idDetalle].cantidad}} </td>
             </ng-container>
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
