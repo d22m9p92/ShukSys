@@ -15,7 +15,6 @@ export class MispedidosComponent implements OnInit {
 
   displayedColumns: string[] = ['fechaPedido','idPedidoEstado','idDetalleVenta','detalle'];
   dataPedido: any; //Es de tipo PedidosO[]
-  idDetalleVenta:string="";
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
