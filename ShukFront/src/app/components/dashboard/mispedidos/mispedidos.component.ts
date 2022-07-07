@@ -27,5 +27,9 @@ export class MispedidosComponent implements OnInit {
       }
       ) 
   }
+
+  VerDetalle(id){
+    this.router.navigate(['dashboard/detalle',id]);
+  }
 }
 

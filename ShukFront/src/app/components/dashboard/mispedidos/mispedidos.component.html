@@ -26,7 +26,7 @@
         <th mat-header-cell *matHeaderCellDef> Det. Venta</th>
           <td mat-cell *matCellDef="let element"> 
             <a class="material-icons-outlined" >
-              <button mat-icon-button routerLink="/dashboard/detalle">
+              <button mat-icon-button (click)="VerDetalle(element.id)">
                 <mat-icon>menu</mat-icon>
               </button>
             </a>

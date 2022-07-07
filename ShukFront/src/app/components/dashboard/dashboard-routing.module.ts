@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: '', component: DashboardComponent, children: [
     { path: '',component: MispedidosComponent, },
     { path: 'nuevopedido',component: PedidosComponent, },
-    { path: 'detalle',component: PedidodetalleComponent,}
+    { path: 'detalle/:id',component: PedidodetalleComponent,}
   ]}
 ];
 
