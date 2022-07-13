@@ -1,6 +1,6 @@
 export interface Detalle {
-    idDetalle: number;
-    producto: string;
+    id: number;
+    idProducto: string;
     cantidad: number;
 
 }

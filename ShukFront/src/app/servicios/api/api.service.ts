@@ -32,10 +32,8 @@ export class ApiService {
   }
 
 
-  getDetalle():Observable<Detalle[]>{
-    const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem("token")});
-    return this.http.get<Detalle[]>('/api/pedidodetalle',  { headers: headers});
+  getDetalle(id):Observable<Detalle[]>{
+    const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem('token')});
+    return this.http.get<Detalle[]>('/api/pedidodetalle/'+id,  { headers: headers});
   }
-
-
 }
