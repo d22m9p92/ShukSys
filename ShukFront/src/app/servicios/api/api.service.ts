@@ -36,13 +36,11 @@ export class ApiService {
     const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem('token')});
     return this.http.get<Detalle[]>('/api/pedidodetalle/'+id,  { headers: headers});
   }
-<<<<<<< HEAD
 
   getProductoCategoria():Observable<ProductoCategoriaO[]>{
     const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem("token")});
     return this.http.get<ProductoCategoriaO[]>('/api/productocategoria',  { headers: headers});
   }
 
-=======
->>>>>>> f83e4b25b11a26526f0b11c76593ea5e0b5afe5f
+
 }
