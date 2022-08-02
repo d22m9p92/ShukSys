@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {LoginI,LoginO} from '../../modelos/login.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'; 
-import {PedidosO} from '../../modelos/pedidos.interface';
+import {PedidosO, ProductoCategoriaO} from '../../modelos/pedidos.interface';
 import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 
 @Injectable({
@@ -35,5 +35,9 @@ export class ApiService {
     return this.http.get<PedidosO[]>('/api/pedidodetalle',  { headers: headers});
   }
 
+  getProductoCategoria():Observable<ProductoCategoriaO[]>{
+    const headers = new HttpHeaders({'Authorization':'Token ' + localStorage.getItem("token")});
+    return this.http.get<ProductoCategoriaO[]>('/api/productocategoria',  { headers: headers});
+  }
 
 }

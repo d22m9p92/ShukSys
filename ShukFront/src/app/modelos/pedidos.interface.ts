@@ -12,3 +12,8 @@ export interface PedidosO{
 };
 
 
+export interface ProductoCategoriaO{
+    id: Number;
+    descripcion: String;
+    productos: any;
+}
