@@ -16,7 +16,6 @@ export class MispedidosComponent implements OnInit {
   displayedColumns: string[] = ['fechaPedido','idPedidoEstado','idDetalleVenta','detalle'];
   dataPedido: any; //Es de tipo PedidosO[]
   
-  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private api:ApiService, private router:Router) { }
@@ -27,6 +26,10 @@ export class MispedidosComponent implements OnInit {
       this.dataPedido.paginator = this.paginator;
       }
       ) 
+  }
+
+  VerDetalle(id){
+    this.router.navigate(['dashboard/detalle',id]);
   }
 }
 
